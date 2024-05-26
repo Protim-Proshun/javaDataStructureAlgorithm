@@ -30,6 +30,18 @@ public class LinkedList {
         return tail;
     }
 
+    public void append(int value) {
+        Node newNode = new Node(value);
+        if(length == 0) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+        }
+        length++;
+    }
+
     public int getLength() {
         return length;
     }
@@ -39,6 +51,16 @@ public class LinkedList {
         while(temp != null) {
             System.out.println(temp.value);
             temp = temp.next;
+        }
+    }
+
+    public void printListRecursion() {
+        if(head == null) {
+            return;
+        } else {
+            System.out.println(head.value);
+            head = head.next;
+            printListRecursion();
         }
     }
 
